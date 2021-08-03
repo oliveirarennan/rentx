@@ -1,3 +1,4 @@
+import "dotenv/config"
 import express from "express";
 
 const server = express()
@@ -7,4 +8,8 @@ server.get('/',(request, response)=>{
     message: "Hello World",
     status: "Project setup ok"
   })
+})
+
+server.listen(process.env.EXPRESS_PORT, ()=> {
+  console.info(`Server is running on port ${process.env.EXPRESS_PORT}`)
 })
