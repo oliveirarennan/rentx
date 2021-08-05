@@ -1,3 +1,6 @@
 node_modules
 dis
 .env
+tmp/*
+!tmp/.gitkeep
+
