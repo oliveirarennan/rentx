@@ -1,11 +1,15 @@
 import "dotenv/config";
 import express from "express";
+import swaggerUi from "swagger-ui-express";
 
 import { router } from "./routes";
+import swaggerFile from "./swagger.json";
 
 const server = express();
 
 server.use(express.json());
+
+server.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 server.use(router);
 
