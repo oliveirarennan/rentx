@@ -13,9 +13,9 @@ services:
     networks:
       - rentx-network
     tty: true
-    ports:
-      - 3000:3000
-      - 9229:9229
+    #ports:
+     # - 3000:3000
+      #- 9229:9229
     links:
       - db
     depends_on:
@@ -29,9 +29,9 @@ services:
       - 5432:5432
     tty: true
     environment:
-      POSTGRES_USER: docker
-      POSTGRES_PASSWORD: docker
-      POSTGRES_DB: rentx
+      POSTGRES_USER: "docker"
+      POSTGRES_PASSWORD: "docker"
+      POSTGRES_DB: "rentx"
     volumes:
       - .docker/postgres/pgdata:/var/lib/postgresql/data
     networks:

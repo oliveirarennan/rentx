@@ -20,5 +20,8 @@ WORKDIR /usr/src/app
 # Expose ther port of application
 EXPOSE 3000
 
+# Expose Port for debug
+EXPOSE 9229
 
+CMD [ "yarn", "dev" ]
 
