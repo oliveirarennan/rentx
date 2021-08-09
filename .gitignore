@@ -3,4 +3,5 @@ dis
 .env
 tmp/*
 !tmp/.gitkeep
+.docker/postgres/pgdata/
 

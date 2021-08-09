@@ -1,0 +1,24 @@
+FROM node:lts-alpine
+
+# Upgrade alpine linux
+RUN apk update && \
+    apk add --upgrade apk-tools && \
+    apk upgrade --available
+
+# Install bash, wget and vim
+RUN apk add bash wget vim
+
+# Install dockerized
+ENV DOCKERIZE_VERSION v0.6.1
+RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+    && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+    && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+
+# Set application directory
+WORKDIR /usr/src/app
+
+# Expose ther port of application
+EXPOSE 3000
+
+
+
