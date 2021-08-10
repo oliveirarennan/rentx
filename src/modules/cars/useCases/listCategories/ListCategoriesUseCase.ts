@@ -1,8 +1,9 @@
-import { Category } from "../../model/Category";
+import { Category } from "../../entities/Category";
 import { ICategoryRepository } from "../../repositories/ICategoriesRepository";
 
 export class ListCategoriesUseCase {
   /**
+   * ! Essa Classe não está usando o tsyringe para referencias futuras
    * Essa formar de receber o repositório é o equivalente a
    *  constructor(private categoriesRepository: CategoryRepository )
    */
@@ -11,8 +12,8 @@ export class ListCategoriesUseCase {
     this.categoriesRepository = categoriesRepository;
   }
 
-  execute(): Category[] {
-    const categories = this.categoriesRepository.list();
+  async execute(): Promise<Category[]> {
+    const categories = await this.categoriesRepository.list();
     return categories;
   }
 }
