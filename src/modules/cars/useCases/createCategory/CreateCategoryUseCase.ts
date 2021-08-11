@@ -1,3 +1,4 @@
+import AppError from "../../../../errors/AppError";
 import { ICategoryRepository } from "../../repositories/ICategoriesRepository";
 
 interface IRequest {
@@ -16,7 +17,7 @@ export class CreateCategoryUseCase {
     );
 
     if (categoryAlreadyExists) {
-      throw new Error("Category already exist");
+      throw new AppError("Category already exist");
     }
 
     await this.categoriesRepository.create({ name, description });
