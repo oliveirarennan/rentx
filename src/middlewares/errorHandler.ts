@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 
-import AppError from "../errors/AppError";
+import AppError from "@errors/AppError";
 
 export default function errorHandler(
   err: Error,
@@ -12,10 +12,12 @@ export default function errorHandler(
     return response.status(err.statusCode).json({
       message: err.message,
     });
+    next();
   }
 
   return response.status(500).json({
     status: "error",
     message: `Internal server error - ${err.message}`,
   });
+  next();
 }

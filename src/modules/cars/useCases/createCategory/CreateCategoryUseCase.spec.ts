@@ -1,5 +1,6 @@
-import AppError from "../../../../errors/AppError";
-import CategoryRepositoryInMemory from "../../repositories/in-memory/CategoriesRepositoryInMemory";
+import AppError from "@errors/AppError";
+import CategoryRepositoryInMemory from "@modules/cars/repositories/in-memory/CategoriesRepositoryInMemory";
+
 import { CreateCategoryUseCase } from "./CreateCategoryUseCase";
 
 describe("Create  Category", () => {
@@ -24,8 +25,6 @@ describe("Create  Category", () => {
     const categoryCreated = await categoriesRepositoryInMemory.findByName(
       fakeCategory.name
     );
-
-    console.log(categoryCreated);
 
     expect(categoryCreated).toHaveProperty("id");
   });

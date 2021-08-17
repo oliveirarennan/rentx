@@ -1,5 +1,5 @@
-import { Category } from "../../entities/Category";
-import { ICategoryRepository } from "../../repositories/ICategoriesRepository";
+import { Category } from "@modules/cars/entities/Category";
+import { ICategoryRepository } from "@modules/cars/repositories/ICategoriesRepository";
 
 export class ListCategoriesUseCase {
   /**
