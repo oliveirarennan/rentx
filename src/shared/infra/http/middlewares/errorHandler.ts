@@ -1,8 +1,13 @@
-import { Response } from "express";
+import { NextFunction, Response, Request } from "express";
 
 import AppError from "@shared/errors/AppError";
 
-export default function errorHandler(err: Error, response: Response): Response {
+export default function errorHandler(
+  err: Error,
+  request: Request,
+  response: Response,
+  next: NextFunction
+): Response {
   if (err instanceof AppError) {
     return response.status(err.statusCode).json({
       message: err.message,
@@ -13,4 +18,6 @@ export default function errorHandler(err: Error, response: Response): Response {
     status: "error",
     message: `Internal server error - ${err.message}`,
   });
+
+  next();
 }
