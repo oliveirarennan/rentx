@@ -1,5 +1,5 @@
 node_modules
-dis
+dist
 .env
 tmp/*
 !tmp/.gitkeep

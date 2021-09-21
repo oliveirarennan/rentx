@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 
-import UserProfileUseCase from "./UserPRofileUseCase";
+import UserProfileUseCase from "./UserProfileUseCase";
 
 export default class UserProfileController {
   async handle(request: Request, response: Response): Promise<Response> {
